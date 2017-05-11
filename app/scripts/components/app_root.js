@@ -6,32 +6,23 @@ import getHelp from "../actions/get_help.js";
 import Roller from "./roller.js";
 import RecentRolls from "./recent_rolls.js";
 
-class AppRoot extends React.Component {
-  constructor(props) {
-    super(props);
+const AppRoot = ({ dispatch, text, recentRolls }) => {
+  const handleRoll = (number, die) => {
+    dispatch(rollDie(number, die));
+  };
 
-    this.rollDie = this.rollDie.bind(this);
-    this.getHelp = this.getHelp.bind(this);
-  }
+  const getHelp = e => {
+    dispatch(getHelp());
+  };
 
-  rollDie(number, die) {
-    this.props.dispatch(rollDie(number, die));
-  }
-
-  getHelp(e) {
-    this.props.dispatch(getHelp());
-  }
-
-  render() {
-    return (
-      <main>
-        <section className="roller-app">
-          <Roller rollDie={this.rollDie} text={this.props.text} />
-          <RecentRolls recentRolls={this.props.recentRolls} />
-        </section>
-      </main>
-    );
-  }
-}
+  return (
+    <main>
+      <section className="roller-app">
+        <Roller rollDie={handleRoll} text={text} />
+        <RecentRolls recentRolls={recentRolls} />
+      </section>
+    </main>
+  );
+};
 
 export default connect(state => state)(AppRoot);

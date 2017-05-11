@@ -1,26 +1,18 @@
 import React from "react";
 
-class StaticRoller extends React.Component {
-  constructor(props) {
-    super(props);
+const StaticRoller = ({ rollHandler }) => {
+  const handleRoll = () => {
+    rollHandler(2, 6);
+  };
 
-    this.rollHandler = this.rollHandler.bind(this);
-  }
-
-  rollHandler() {
-    this.props.rollHandler(2, 6);
-  }
-
-  render() {
-    return (
-      <div>
-        <h2>2d6</h2>
-        <button className="roll-button" onClick={this.rollHandler}>
-          Roll
-        </button>
-      </div>
-    );
-  }
-}
+  return (
+    <div>
+      <h2>2d6</h2>
+      <button className="roll-button" onClick={handleRoll}>
+        Roll
+      </button>
+    </div>
+  );
+};
 
 export default StaticRoller;

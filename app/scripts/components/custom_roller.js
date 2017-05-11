@@ -3,20 +3,19 @@ import React from "react";
 class CustomRoller extends React.Component {
   constructor(props) {
     super(props);
-
     this.rollHandler = this.rollHandler.bind(this);
   }
 
   rollHandler() {
-    var number = this.refs.nbr.value;
-    var die = this.refs.die.value;
+    var number = this.refs.nbr.value || 2;
+    var die = this.refs.die.value || 6;
     this.props.rollHandler(number, die);
   }
 
   render() {
     return (
       <div>
-        <h2>Custom</h2>
+        <h2>Click Dat Button</h2>
 
         <div className="custom-block">
           <div className="custom-input">

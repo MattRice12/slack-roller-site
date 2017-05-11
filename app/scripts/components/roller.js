@@ -10,9 +10,9 @@ const Roller = ({ text, rollDie }) => {
   return (
     <div className="roller-container">
       <div className="dice-block">
-        <div className="roller">
+        {/*<div className="roller">
           <StaticRoller rollHandler={rollHandler} />
-        </div>
+        </div>*/}
 
         <div className="roller">
           <CustomRoller rollHandler={rollHandler} />
