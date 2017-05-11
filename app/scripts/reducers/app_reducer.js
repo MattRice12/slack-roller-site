@@ -1,12 +1,13 @@
 export default function AppReducer(state, action) {
   if (state === undefined) {
-    return {};
+    return {
+      text: ""
+    };
   }
 
   switch (action.type) {
-    case "TEST_REDUCER":
-      // DELETE OR CHANGE ME: I AM JUST AN EXAMPLE
-      return Object.assign({}, state, { newData: action.data });
+    case "ROLL_DIE":
+      return Object.assign({}, state, { text: action.text });
   }
 
   console.log("Unhandled State!");

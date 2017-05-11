@@ -3,6 +3,7 @@ import { connect } from "react-redux";
 import { Route, Link, NavLink } from "react-router-dom";
 import rollDie from "../actions/roll_die.js";
 import getHelp from "../actions/get_help.js";
+import Roller from "./roller.js";
 
 class AppRoot extends React.Component {
   constructor(props) {
@@ -12,13 +13,11 @@ class AppRoot extends React.Component {
     this.getHelp = this.getHelp.bind(this);
   }
 
-  rollDie(e) {
-    e.preventDefault();
-    this.props.dispatch(rollDie());
+  rollDie(number, die) {
+    this.props.dispatch(rollDie(number, die));
   }
 
   getHelp(e) {
-    e.preventDefault();
     this.props.dispatch(getHelp());
   }
 
@@ -26,11 +25,11 @@ class AppRoot extends React.Component {
     return (
       <main>
         <section>
-          <button onClick={this.rollDie}>Roll</button>
+          <Roller rollDie={this.rollDie} text={this.props.text} />
         </section>
       </main>
     );
   }
 }
 
-export default connect()(AppRoot);
+export default connect(state => state)(AppRoot);
