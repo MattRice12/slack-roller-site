@@ -19,16 +19,22 @@ class CustomRoller extends React.Component {
         <h2>Custom</h2>
 
         <div className="custom-block">
-          <label htmlFor="Nbr">Nbr</label>
-          <input type="number" id="Nbr" min="0" step="1" ref="nbr" />
+          <div className="custom-input">
+            <label htmlFor="Nbr">Nbr</label>
+            <input type="number" id="Nbr" min="0" step="1" ref="nbr" />
+          </div>
 
-          <br />
+          <div className="custom-input">
+            <label htmlFor="Die">Die</label>
+            <input type="number" id="Die" min="0" step="1" ref="die" />
+          </div>
 
-          <label htmlFor="Die">Die</label>
-          <input type="number" id="Die" min="0" step="1" ref="die" />
+          <div className="custom-input">
+            <button className="roll-button" onClick={this.rollHandler}>
+              Roll
+            </button>
+          </div>
 
-          <br />
-          <button onClick={this.rollHandler}>Roll</button>
         </div>
       </div>
     );

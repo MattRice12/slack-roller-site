@@ -4,7 +4,7 @@ export default function rollDie(number, die) {
   return function(dispatch) {
     $.ajax({
       type: "POST",
-      url: "https://slack-die-roller.herokuapp.com/roll",
+      url: api.url + "/roll",
       data: JSON.stringify({
         user_name: "mattrice",
         text: `${number}d${die}`

@@ -15,7 +15,9 @@ class StaticRoller extends React.Component {
     return (
       <div>
         <h2>2d6</h2>
-        <button onClick={this.rollHandler}>Roll</button>
+        <button className="roll-button" onClick={this.rollHandler}>
+          Roll
+        </button>
       </div>
     );
   }

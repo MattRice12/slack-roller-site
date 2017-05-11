@@ -1,39 +1,93 @@
-.container {
-  width: 80vw;
-  margin: 0 10vw;
+.roller-app {
   display: flex;
   justify-content: center;
   flex-wrap: wrap;
-  // border: 1px solid black;
+  padding-top: 1em;
 }
 
-.content {
-  width: 50vw;
-  // border: 1px solid green;
+.recent-rolls-container {
   display: flex;
   justify-content: center;
-  flex-wrap: wrap
+  align-content: flex-start;
+  flex-wrap: wrap;
+  width: 80%;
+  min-width: 10em;
+  height: 20em;
+  overflow: scroll;
+  padding: 0;
+  margin: 0;
+  background: beige;
+  border: 1px solid gray;
+  border-radius: 5px;
+  padding: 1em;
+  margin: 1em 1em;
+  li {margin: 1em;}
+}
+
+.roller-container {
+  width: 35em;
+  display: flex;
+  flex-wrap: wrap;
+  align-content: flex-start;
+}
+
+.dice-block {
+  min-height: 15em;
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+.output-block {
+  margin: 0 1em;
 }
 
 .roller {
   width: 15em;
-  height: 10em;
+  min-width: 15em;
+  height: 12em;
   background: lightgray;
   border: 2px solid black;
   border-radius: 5px;
   display: flex;
   justify-content: center;
   align-items: center;
-  margin: 2em;
+  margin: 1em;
   .custom-block {
     display: flex;
     justify-content: center;
     flex-wrap: wrap;
+    .custom-input {
+      margin: .35em;
+      flex-basis: 28%;
+      label {
+        padding: 0 .25em;
+        font-size: 1.3em;
+        vertical-align: bottom;
+      }
+    }
     input {
-      width: 3em;
+      width: 4em;
+      height: 2em;
+    }
+  }
+  .roll-button {
+    width: 5em;
+    height: 2em;
+    font-size: 1.1em;
+    background: white;
+    border: 1px solid black;
+    border-radius: 2px;
+    outline: none;
+    &:hover {
+      background: #eee;
+    }
+    &:active {
+      background: #aaa;
     }
   }
   h2 {
     text-align: center;
+    font-size: 1.5em;
   }
 }

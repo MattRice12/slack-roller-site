@@ -4,7 +4,7 @@ export default function getHelp() {
   return function(dispatch) {
     $.ajax({
       type: "GET",
-      url: "https://slack-die-roller.herokuapp.com/helpdw",
+      url: api + "/helpdw",
       dataType: "json"
     }).then(() => {
       console.log(response);

@@ -4,6 +4,7 @@ import { Route, Link, NavLink } from "react-router-dom";
 import rollDie from "../actions/roll_die.js";
 import getHelp from "../actions/get_help.js";
 import Roller from "./roller.js";
+import RecentRolls from "./recent_rolls.js";
 
 class AppRoot extends React.Component {
   constructor(props) {
@@ -24,8 +25,9 @@ class AppRoot extends React.Component {
   render() {
     return (
       <main>
-        <section>
+        <section className="roller-app">
           <Roller rollDie={this.rollDie} text={this.props.text} />
+          <RecentRolls recentRolls={this.props.recentRolls} />
         </section>
       </main>
     );
