@@ -1,4 +1,6 @@
 import React from "react";
+import CustomRoller from "./custom_roller.js";
+import StaticRoller from "./static_roller.js";
 
 class Roller extends React.Component {
   constructor(props) {
@@ -7,25 +9,27 @@ class Roller extends React.Component {
     this.rollHandler = this.rollHandler.bind(this);
   }
 
-  rollHandler() {
-    var number = this.refs.nbr.value;
-    var die = this.refs.die.value;
+  rollHandler(number, die) {
     this.props.rollDie(number, die);
   }
 
   render() {
     return (
-      <div>
-        <label htmlFor="Nbr">Nbr</label>
-        <input type="number" id="Nbr" min="0" step="1" ref="nbr" />
+      <div className="container">
+        <div className="content">
+          <div className="roller">
+            <StaticRoller rollHandler={this.rollHandler} />
+          </div>
 
-        <br />
+          <div className="roller">
+            <CustomRoller rollHandler={this.rollHandler} />
+          </div>
+        </div>
 
-        <label htmlFor="Die">Die</label>
-        <input type="number" id="Die" min="0" step="1" ref="die" />
+        <div className="content">
+          <h2>{this.props.text}</h2>
+        </div>
 
-        <button onClick={this.rollHandler}>Roll</button>
-        <h2>{this.props.text}</h2>
       </div>
     );
   }
